@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.yellowtail-regular {
+  font-family: "Yellowtail", cursive;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 10px;
+}
