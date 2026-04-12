@@ -3,7 +3,7 @@ import Navbar from "./Components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PageLoader from "./Components/PageLoader";
 import Footer from "./Components/Footer";
-
+const Inputs = lazy(()=>import("./Pages/Inputs"))
 const Buttons = lazy(() => import("./Pages/Buttons"));
 const Cards = lazy(() => import("./Pages/Cards"));
 const Home = lazy(() => import("./Pages/Home"));
@@ -16,6 +16,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/buttons" element={<Buttons />} />
           <Route path="/cards" element={<Cards />} />
+          <Route path="/inputs" element={<Inputs />} />
         </Routes>
         <Footer />
       </Suspense>

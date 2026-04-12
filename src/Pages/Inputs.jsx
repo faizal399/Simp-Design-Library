@@ -3,11 +3,11 @@ import { useContext } from "react";
 import PreviewCards from "../Components/PreviewCards";
 import PreviewCardSkeleton from "../Components/PreviewCardSkeleton.jsx";
 
-const Cards = () => {
-  const { dark, FilterCardComponent, loading } =
+const Inputs = () => {
+  const { dark, FilterInputComponent, loading } =
     useContext(ComponentsContext);
 
-  const cards = FilterCardComponent();
+  const inputs = FilterInputComponent();
 
   return (
     <div
@@ -23,10 +23,10 @@ const Cards = () => {
       {/* Header */}
       <header className="max-w-6xl mx-auto pt-10 mb-10">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-          Card Components
+          Input Components
         </h1>
         <p className="text-sm opacity-70 mt-2">
-          Browse modern card UI components designed for clean and responsive layouts.
+          Explore modern input fields with smooth interactions and clean UI design.
         </p>
       </header>
 
@@ -36,7 +36,7 @@ const Cards = () => {
           ? Array(6)
               .fill(0)
               .map((_, i) => <PreviewCardSkeleton key={i} />)
-          : cards.map((item) => (
+          : inputs.map((item) => (
               <PreviewCards item={item} key={item.id} />
             ))}
       </div>
@@ -44,4 +44,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default Inputs;

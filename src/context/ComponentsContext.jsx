@@ -5,10 +5,13 @@ export const ComponentsContext = createContext();
 const ComponentsProvider = ({ children }) => {
 
   const [components, setComponents] = useState([]);
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(null);
   const [loading, setLoading] = useState(null);
   
   const fetchComponents = async () => {
+
+    setLoading(true)
+
     const { data, error } = await supabase.from("components").select("*");
 
     if (error) {
@@ -16,6 +19,7 @@ const ComponentsProvider = ({ children }) => {
     } else {
       setComponents(data);
     }
+    setLoading(false)
   };
 
   useEffect(() => {
@@ -29,22 +33,22 @@ const ComponentsProvider = ({ children }) => {
     return filterbutton;
   };
   const FilterCardComponent = () => {
-    const filterbutton = components.filter(
+    const filtercard = components.filter(
       (button) => button.category?.toLowerCase() === "card",
     );
-    return filterbutton;
+    return filtercard;
+  };
+  const FilterInputComponent = () => {
+    const filterinput = components.filter(
+      (button) => button.category?.toLowerCase() === "input",
+    );
+    return filterinput;
   };
 
   const handleTheme = () => {
     setDark(!dark);
   };
 
-  const LoadingState = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 700);
-  };
 
   return (
     <ComponentsContext.Provider
@@ -55,8 +59,8 @@ const ComponentsProvider = ({ children }) => {
         setLoading,
         FilterButtonComponent,
         FilterCardComponent,
+        FilterInputComponent,
         dark,
-        LoadingState,
         setDark,
         handleTheme,
       }}

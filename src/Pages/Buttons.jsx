@@ -2,30 +2,45 @@ import { useContext } from "react";
 import { ComponentsContext } from "../context/ComponentsContext";
 import PreviewCards from "../Components/PreviewCards";
 import PreviewCardSkeleton from "../Components/PreviewCardSkeleton";
+
 const Buttons = () => {
-  const { FilterButtonComponent, dark, loading, LoadingState } =
+  const { FilterButtonComponent, dark, loading } =
     useContext(ComponentsContext);
+
   const buttons = FilterButtonComponent();
-  console.log(buttons);
-  LoadingState();
 
   return (
     <div
-      className={`flex flex-col pb-20 selection:bg-black selection:text-white justify-center items-center w-full max-h-full min-h-screen ${dark ? "bg-black" : "bg-[#e8e8e8]"}  gap-5`}
+      className={`
+      min-h-screen
+      px-4 sm:px-6 md:px-10 lg:px-16
+      pb-20
+      transition-colors duration-300
+
+      ${dark ? "bg-black text-white" : "bg-[#f5f5f5] text-black"}
+      `}
     >
-      <header
-        className={`mb-6 pt-5 text-4xl ${dark ? "text-white" : "text-black"} font-bold`}
-      >
-        <h1>Buttons Components</h1>
+      {/* Header */}
+      <header className="max-w-6xl mx-auto pt-10 mb-10">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+          Button Components
+        </h1>
+        <p className="text-sm opacity-70 mt-2">
+          Explore modern, reusable button components built with React & Tailwind.
+        </p>
       </header>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 w-[80%]  place-items-center h-full ">
+
+      {/* Grid */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        
         {loading
           ? Array(6)
               .fill(0)
               .map((_, i) => <PreviewCardSkeleton key={i} />)
-          : buttons.map((item) => <PreviewCards item={item} key={item.id} />)}
+          : buttons.map((item) => (
+              <PreviewCards item={item} key={item.id} />
+            ))}
       </div>
-     
     </div>
   );
 };
