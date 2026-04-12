@@ -3,7 +3,7 @@ import SocialShare from "./SocialShare";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-    <div className="h-[25vh] border-t  w-full grid grid-cols-3 gap-2 p-4 ">
+    <footer className="min-h-[25vh] h-fit border-t  w-full grid grid-cols-3 gap-2 p-4 ">
       <div className="flex flex-col gap-2 ">
         <h1 className="text-center font-semibold">About Me</h1>
         <p className="text-sm text-gray-600">
@@ -13,7 +13,7 @@ const Footer = () => {
           modern interfaces faster.
         </p>
       </div>
-      <div className="flex flex-col gap-2 justify-center items-center">
+      <div className="flex flex-col  gap-2 justify-center items-center">
         <h1 className="text-center font-semibold">Quick Links</h1>
         <ul className="text-center ">
           <li className="hover:underline cursor-pointer">
@@ -32,7 +32,7 @@ const Footer = () => {
         <h1 className="text-center font-semibold">Follow Me</h1>
         <SocialShare />
       </div>
-    </div>
+    </footer>
   );
 };
 

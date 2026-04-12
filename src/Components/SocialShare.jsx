@@ -25,7 +25,7 @@ export default function SocialShare() {
   ];
 
   return (
-    <div className="flex gap-4 mt-[10px]">
+    <div className="flex gap-4 mt-2.5 flex-col md:flex-row ">
       {socials.map((item, i) => {
         const Icon = item.icon;
 
