@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: provider,
       options: {
-        redirectTo: "http://localhost:5173",
+        redirectTo: window.location.origin,
       },
     });
     if (error) console.error(error.message);
