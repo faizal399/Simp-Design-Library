@@ -1,12 +1,12 @@
-import React, { useContext,  } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ComponentsContext } from "../context/ComponentsContext.jsx";
+import { useAuth } from "../context/AuthContext.jsx";
 
 const Home = () => {
-  
   const { components, dark } = useContext(ComponentsContext);
 
-
+  const { user } = useAuth();
 
   const navigate = useNavigate();
   return (
@@ -21,6 +21,11 @@ const Home = () => {
             Simp Design Library
           </button>
         </h1>
+        {/* {user && (
+          <p className="text-center font-semibold">
+            Welcome back {user.identities[1].identity_data.full_name}
+          </p>
+        )} */}
         <h4
           className={`${dark ? "text-slate-300" : "text-slate-700"} text-center text-sm md:text-lg relative z-10 mb-6`}
         >
@@ -29,7 +34,7 @@ const Home = () => {
       </div>
       <button
         onClick={() => navigate("/buttons")}
-        className="mt-8 px-8 py-3 rounded-full bg-linear-to-r from-purple-500 to-indigo-600 hover:scale-105 transition-all duration-300 font-medium shadow-lg cursor-pointer shadow-purple-500/30"
+        className="mt-10 px-8 py-3 rounded-full bg-linear-to-r from-purple-500 to-indigo-600 hover:scale-105 transition-all duration-300 font-medium shadow-lg cursor-pointer shadow-purple-500/30"
       >
         Explore Components
       </button>

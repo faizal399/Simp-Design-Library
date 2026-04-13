@@ -5,8 +5,10 @@ import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { ComponentsContext } from "../context/ComponentsContext";
 import SwitchNavigation from "./SwitchNavigation";
+import { useAuth } from "../context/AuthContext";
 const Navbar = () => {
   const { dark, handleTheme } = useContext(ComponentsContext);
+  const { user, logout } = useAuth();
 
   return (
     <nav
@@ -57,6 +59,7 @@ const Navbar = () => {
         </button>
         <div className="flex justify-between items-center gap-2">
           <SwitchNavigation />
+
           <a
             className="ml-2 hover:scale-[1.1] transition-all duration-200"
             href="https://github.com/faizal399"
@@ -65,6 +68,29 @@ const Navbar = () => {
           >
             <FaGithub />
           </a>
+
+          {user ? (
+            <button
+              onClick={logout}
+              className="md:px-3 text-xs md:text-sm md:py-1 px-1 py-1 text-center rounded-lg border cursor-pointer  hover:scale-101 transition-all duration-300"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="md:px-3 text-xs md:text-sm md:py-1 px-1 py-1 text-center rounded-lg border cursor-pointer  hover:scale-101 transition-all duration-300"
+            >
+              Login
+            </Link>
+          )}
+          {user && (
+            <img
+              src={user.user_metadata?.avatar_url}
+              alt="avatar"
+              className="w-8 h-8 border cursor-pointer rounded-full"
+            />
+          )}
         </div>
       </div>
     </nav>
