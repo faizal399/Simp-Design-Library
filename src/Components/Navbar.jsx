@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { MdLightMode } from "react-icons/md";
 import { IoMoon } from "react-icons/io5";
+import { IoIosLogIn } from "react-icons/io";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { ComponentsContext } from "../context/ComponentsContext";
 import SwitchNavigation from "./SwitchNavigation";
 import { useAuth } from "../context/AuthContext";
+import UserMenu from "./Usermenu";
 const Navbar = () => {
   const { dark, handleTheme } = useContext(ComponentsContext);
   const { user, logout } = useAuth();
@@ -70,26 +72,17 @@ const Navbar = () => {
           </a>
 
           {user ? (
-            <button
-              onClick={logout}
-              className="md:px-3 text-xs md:text-sm md:py-1 px-1 py-1 text-center rounded-lg border cursor-pointer  hover:scale-101 transition-all duration-300"
-            >
-              Logout
-            </button>
+            <UserMenu />
           ) : (
             <Link
               to="/login"
-              className="md:px-3 text-xs md:text-sm md:py-1 px-1 py-1 text-center rounded-lg border cursor-pointer  hover:scale-101 transition-all duration-300"
+              className="md:px-3 text-xs md:text-sm md:py-1 px-1 py-1 text-center rounded-lg border cursor-pointer  hover:scale-101 flex justify-center items-center font-bold transition-all gap-1 duration-300"
             >
               Login
+              <span>
+                <IoIosLogIn />
+              </span>
             </Link>
-          )}
-          {user && (
-            <img
-              src={user.user_metadata?.avatar_url}
-              alt="avatar"
-              className="w-8 h-8 border cursor-pointer rounded-full"
-            />
           )}
         </div>
       </div>

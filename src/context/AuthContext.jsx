@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: "http://localhost:5173",
+        emailRedirectTo: window.location.origin,
       },
     });
     if(error) console.error(error.message)
