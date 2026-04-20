@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { ComponentsContext } from "../context/ComponentsContext";
 import SwitchNavigation from "./SwitchNavigation";
 import { useAuth } from "../context/AuthContext";
-import UserMenu from "./Usermenu";
+import UserMenu from "./UserMenu";
 const Navbar = () => {
   const { dark, handleTheme } = useContext(ComponentsContext);
   const { user, logout } = useAuth();
