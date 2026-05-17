@@ -10,7 +10,7 @@ import { useAuth } from "../context/AuthContext";
 import UserMenu from "./UserMenu";
 const Navbar = () => {
   const { dark, handleTheme } = useContext(ComponentsContext);
-  const { user, logout } = useAuth();
+  const { user,  } = useAuth();
 
   return (
     <nav

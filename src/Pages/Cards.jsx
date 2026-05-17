@@ -25,9 +25,16 @@ const Cards = () => {
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
           Card Components
         </h1>
-        <p className="text-sm opacity-70 mt-2">
-          Browse modern card UI components designed for clean and responsive layouts.
-        </p>
+        <p className="text-sm sm:text-base opacity-70 mt-3 max-w-2xl leading-relaxed">
+  Explore beautifully crafted and fully responsive card components built with
+  modern UI principles. Perfect for dashboards, portfolios, SaaS products,
+  blogs, and web applications.
+</p>
+
+<p className="text-xs sm:text-sm opacity-50 mt-2 max-w-xl">
+  Includes interactive hover effects, smooth animations, dark mode support,
+  reusable layouts, and clean Tailwind CSS styling for faster development.
+</p>
       </header>
 
       {/* Grid */}

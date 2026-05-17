@@ -4,6 +4,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PageLoader from "./Components/PageLoader";
 import Footer from "./Components/Footer";
 import LoginPage from "./Pages/LoginPage";
+import "@fontsource/geist"; // Defaults to weight 400
+import "@fontsource/geist/700.css"; // Optional: specify extra weights
+
 const Inputs = lazy(()=>import("./Pages/Inputs"))
 const Buttons = lazy(() => import("./Pages/Buttons"));
 const Cards = lazy(() => import("./Pages/Cards"));
