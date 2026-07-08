@@ -1,13 +1,11 @@
-import { ComponentsContext } from "../context/ComponentsContext.jsx";
-import { useContext } from "react";
+import React, { useContext } from "react";
+import { ComponentsContext } from "../context/ComponentsContext";
+import PreviewCardSkeleton from "../Components/PreviewCardSkeleton";
 import PreviewCards from "../Components/PreviewCards";
-import PreviewCardSkeleton from "../Components/PreviewCardSkeleton.jsx";
+const AllComponents = () => {
+  const { dark, components, loading } = useContext(ComponentsContext);
 
-const Cards = () => {
-  const { dark, FilterCardComponent, loading } = useContext(ComponentsContext);
-
-  const cards = FilterCardComponent();
-
+  const cards = components;
   return (
     <div
       className={`
@@ -22,7 +20,7 @@ const Cards = () => {
       {/* Header */}
       <header className="max-w-6xl mx-auto pt-10 mb-10">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-          Card Components
+          Components
         </h1>
         <p className="text-xm sm:text-sm opacity-70 mt-3 max-w-2xl leading-relaxed">
           Explore beautifully crafted and fully responsive card components built
@@ -31,7 +29,7 @@ const Cards = () => {
         </p>
       </header>
 
-      {/* Grid */}
+      
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {loading
           ? Array(6)
@@ -43,4 +41,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default AllComponents;

@@ -1,16 +1,16 @@
-import { useState, createContext, useEffect,  } from "react";
+import { useState, createContext, useEffect } from "react";
 import { supabase } from "../lib/supabase";
+
 export const ComponentsContext = createContext();
 
 const ComponentsProvider = ({ children }) => {
-
   const [components, setComponents] = useState([]);
   const [dark, setDark] = useState(null);
   const [loading, setLoading] = useState(null);
-  
-  const fetchComponents = async () => {
 
-    setLoading(true)
+
+  const fetchComponents = async () => {
+    setLoading(true);
 
     const { data, error } = await supabase.from("components").select("*");
 
@@ -19,13 +19,15 @@ const ComponentsProvider = ({ children }) => {
     } else {
       setComponents(data);
     }
-    setLoading(false)
+    setLoading(false);
   };
 
   useEffect(() => {
     fetchComponents();
+    
   }, []);
 
+  console.log(components)
   const FilterButtonComponent = () => {
     const filterbutton = components.filter(
       (button) => button.category?.toLowerCase() === "button",
@@ -49,7 +51,6 @@ const ComponentsProvider = ({ children }) => {
     setDark(!dark);
   };
 
-
   return (
     <ComponentsContext.Provider
       value={{
@@ -62,6 +63,7 @@ const ComponentsProvider = ({ children }) => {
         FilterInputComponent,
         dark,
         setDark,
+       
         handleTheme,
       }}
     >

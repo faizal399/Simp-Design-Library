@@ -11,6 +11,7 @@ const Inputs = lazy(()=>import("./Pages/Inputs"))
 const Buttons = lazy(() => import("./Pages/Buttons"));
 const Cards = lazy(() => import("./Pages/Cards"));
 const Home = lazy(() => import("./Pages/Home"));
+const AllComponents = lazy(() => import("./Pages/AllComponents"));
 const App = () => {
   return (
     <BrowserRouter>
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/cards" element={<Cards />} />
           <Route path="/inputs" element={<Inputs />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/components" element={<AllComponents/>} />
         </Routes>
         <Footer />
       </Suspense>

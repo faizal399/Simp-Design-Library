@@ -56,6 +56,14 @@ const PreviewCards = ({ item }) => {
   return (
     <motion.div
       ref={previewRef}
+      initial={{
+        // scale:0.5,
+        y: 20,
+      }}
+      animate={{
+        // scale:1,
+        y: 0,
+      }}
       style={{
         opacity: FadePreview,
 
@@ -123,11 +131,9 @@ ${item.code}
       </div>
       {
         <>
-          <div
-            className={`font-semibold   ${dark ? "text-gray-300" : "text-gray-600"} text-sm`}
-          >
-            <p>{item.name}</p>
-            <p className="text-gray-600 text-xs">{item.category}</p>
+          <div className={`font-semibold    text-sm`}>
+            <p>Name: {item.name}</p>
+            <p className="">Categery: {item.category}</p>
           </div>
           <div className="flex gap-2 w-full text-sm ">
             <button

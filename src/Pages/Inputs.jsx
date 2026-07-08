@@ -20,7 +20,7 @@ const Inputs = () => {
       ${dark ? "bg-black text-white" : "bg-[#f5f5f5] text-black"}
       `}
     >
-      {/* Header */}
+    
       <header className="max-w-6xl mx-auto pt-10 mb-10">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
           Input Components
@@ -30,7 +30,7 @@ const Inputs = () => {
         </p>
       </header>
 
-      {/* Grid */}
+    
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {loading
           ? Array(6)
